@@ -689,3 +689,61 @@ footer {
     opacity: 0.9;
     margin-top: 1rem;
 }
+/* Styles for the container of service cards */
+.services .carousel-container {
+    /* Inherits most styles from .carousel-container */
+    /* Add any specific overrides for the services container if needed */
+}
+
+/* Styles for individual service cards */
+.services .carousel-item {
+    /* Inherits base styles from .carousel-item (padding, border-radius, shadow, hover, etc.) */
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+/* Style for the anchor tag wrapping the card content */
+.services .carousel-item .service-card-link {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color from the parent (.carousel-item or body) */
+    display: flex; /* Maintain the column layout inside the link */
+    flex-direction: column;
+    height: 100%; /* Make the link fill the card */
+    /* Add padding or margins inside the link if needed, although padding is usually on the .carousel-item */
+}
+
+/* Ensure text elements inside the link use appropriate colors */
+.services .carousel-item .service-card-link h3 {
+    color: var(--primary-blue); /* Keep the title color */
+    /* Inherits other h3 styles */
+}
+
+.services .carousel-item .service-card-link p {
+    color: var(--light-text); /* Keep the paragraph text color */
+    /* Inherits other p styles */
+}
+
+/* Optional: Style for when the card link is active (clicked) */
+.services .carousel-item .service-card-link:active {
+    transform: scale(0.98); /* Subtle press effect */
+    transition: transform 0.1s ease;
+}
+
+/* Optional: Further refine hover effects on the linked card */
+.services .carousel-item:hover {
+    transform: translateY(-10px); /* Keep the lift effect on parent */
+    box-shadow: var(--shadow-lg);
+}
+/* Ensure the link itself doesn't add a separate hover effect unless intended */
+.services .carousel-item .service-card-link:hover {
+    text-decoration: none; /* Explicitly remove underline on link hover */
+}
+
+/* Refine focus state for accessibility */
+.services .carousel-item:focus-visible {
+     outline: 2px solid var(--primary-blue);
+     outline-offset: 4px;
+ }
+ /* If the link gets focus directly (less common if parent is focusable, but good practice) */
+ .services .carousel-item .service-card-link:focus-visible {
+      outline: none; /* Prevent double outline if parent has one */
+ }
