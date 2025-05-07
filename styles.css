@@ -340,6 +340,9 @@ footer {
 }
 
 .dashboard {
+    width:940px;
+    max-width:940px;
+    height:100%;
     padding: 5rem 4%;
     background-color: var(--dark-bg);
 }
