@@ -1,1618 +1,275 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Holistic Growth Marketing offers data-driven SEO and Business Intelligence solutions for Los Angeles businesses seeking sustainable growth and measurable results.">
-	<title>Holistic Growth Marketing - LA SEO & Business Intelligence Experts</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	<style>
-		:root {
-			--primary-blue: #007bff;
-			--secondary-green: #28a745;
-			--light-bg: #f8f9fa;
-			--dark-bg: #e9ecef;
-			--dark-text: #212529;
-			--light-text: #6c757d;
-			--white: #ffffff;
-			--border-color: #dee2e6;
-			--shadow-sm: 0 .125rem .25rem rgba(0, 0, 0, .075);
-			--shadow-md: 0 .5rem 1rem rgba(0, 0, 0, .15);
-			--shadow-lg: 0 1rem 3rem rgba(0, 0, 0, .175);
-			--font-family-sans-serif: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-			--border-radius: 0.3rem;
-			--border-radius-lg: 0.5rem;
-		}
-
-		* {
-			margin: 0;
-			padding: 0;
-			box-sizing: border-box;
-		}
-
-		html {
-			scroll-behavior: smooth;
-		}
-
-		body {
-			background-color: var(--light-bg);
-			color: var(--dark-text);
-			width: 100%;
-			min-height: 100vh;
-			line-height: 1.65;
-			font-family: var(--font-family-sans-serif);
-		}
-
-		header {
-			padding: 1rem 4%;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			z-index: 1000;
-			background-color: var(--white);
-			box-shadow: var(--shadow-sm);
-			transition: box-shadow 0.3s ease, padding 0.3s ease;
-		}
-
-		header.scrolled {
-			box-shadow: var(--shadow-md);
-			padding: 0.75rem 4%;
-		}
-
-		.logo {
-			color: var(--primary-blue);
-			font-size: 1.6rem;
-			font-weight: 700;
-			text-decoration: none;
-			display: flex;
-			align-items: center;
-			gap: 0.6rem;
-		}
-
-		.logo i {
-			font-size: 1.5rem;
-		}
-
-		nav {
-			display: flex;
-			gap: 1.8rem;
-		}
-
-		nav a {
-			color: var(--dark-text);
-			text-decoration: none;
-			font-size: 0.95rem;
-			font-weight: 500;
-			transition: color 0.2s ease, transform 0.2s ease;
-			position: relative;
-			padding-bottom: 0.3rem;
-		}
-
-		nav a::after {
-			content: '';
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			width: 0;
-			height: 2px;
-			background-color: var(--primary-blue);
-			transition: width 0.3s ease;
-		}
-
-		nav a:hover,
-		nav a.active {
-			color: var(--primary-blue);
-		}
-
-		nav a:hover::after,
-		nav a.active::after {
-			width: 100%;
-		}
-
-		.user-menu {
-			display: flex;
-			align-items: center;
-			gap: 1.2rem;
-		}
-
-		.user-menu i {
-			font-size: 1.3rem;
-			cursor: pointer;
-			color: var(--light-text);
-			transition: color 0.2s ease, transform 0.2s ease;
-		}
-
-		.user-menu i:hover {
-			color: var(--primary-blue);
-			transform: scale(1.1);
-		}
-
-		.mobile-nav-toggle {
-			display: none;
-			font-size: 1.8rem;
-			color: var(--dark-text);
-			cursor: pointer;
-			background: none;
-			border: none;
-		}
-
-		.hero {
-			width: 100%;
-			min-height: 100vh;
-			position: relative;
-			background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			padding: 8rem 2rem 4rem;
-			overflow: hidden;
-		}
-
-		.hero::before {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: url('https://images.unsplash.com/photo-1503428593586-e25b3fc67b19?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-			opacity: 0.1;
-			z-index: 1;
-		}
-
-		.hero-content {
-			position: relative;
-			max-width: 1200px;
-			padding: 0 1rem;
-			z-index: 2;
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			text-align: center;
-		}
-
-		.hero-title {
-			font-size: 3.2rem;
-			margin-bottom: 1.5rem;
-			color: var(--dark-text);
-			font-weight: 700;
-			line-height: 1.2;
-		}
-
-		.hero-description {
-			font-size: 1.25rem;
-			margin-bottom: 3rem;
-			line-height: 1.7;
-			color: var(--light-text);
-			max-width: 750px;
-		}
-
-		.hero-form-container {
-			display: flex;
-			background: var(--white);
-			border-radius: var(--border-radius-lg);
-			box-shadow: var(--shadow-lg);
-			width: 100%;
-			max-width: 950px;
-			overflow: hidden;
-			margin-top: 1rem;
-		}
-
-		.hero-offer {
-			background: var(--primary-blue);
-			color: var(--white);
-			padding: 3rem;
-			width: 45%;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			text-align: left;
-		}
-
-		.hero-offer h2 {
-			font-size: 1.8rem;
-			margin-bottom: 1.8rem;
-			font-weight: 600;
-		}
-
-		.hero-offer ul {
-			list-style: none;
-		}
-
-		.hero-offer li {
-			margin-bottom: 1.2rem;
-			display: flex;
-			align-items: center;
-			gap: 0.8rem;
-			font-size: 1.05rem;
-		}
-
-		.hero-offer i {
-			color: #00ffe9;
-			font-size: 1.2rem;
-			border: 1px solid #FFF;
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-			border-radius: 50px;
-		}
-
-		.hero-form {
-			padding: 3rem;
-			width: 55%;
-			display: flex;
-			flex-direction: column;
-			gap: 1.2rem;
-		}
-
-		.hero-form input {
-			padding: 0.9rem 1rem;
-			border: 1px solid var(--border-color);
-			border-radius: var(--border-radius);
-			font-size: 1rem;
-			transition: border-color 0.2s ease, box-shadow 0.2s ease;
-		}
-
-		.hero-form input:focus {
-			outline: none;
-			border-color: var(--primary-blue);
-			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-		}
-
-		.hero-form input.error {
-			border-color: #dc3545;
-		}
-
-		.hero-form input.error:focus {
-			box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, .25);
-		}
-
-		.btn {
-			padding: 0.8rem 1.5rem;
-			font-size: 1rem;
-			font-weight: 500;
-			border-radius: var(--border-radius);
-			cursor: pointer;
-			transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
-			border: 1px solid transparent;
-			display: inline-flex;
-			align-items: center;
-			justify-content: center;
-			gap: 0.5rem;
-			text-decoration: none;
-		}
-
-		.btn-primary {
-			background-color: var(--primary-blue);
-			color: var(--white);
-			border-color: var(--primary-blue);
-		}
-
-		.btn-primary:hover {
-			background-color: #0056b3;
-			border-color: #0056b3;
-			transform: translateY(-2px);
-		}
-
-		.btn-primary:active {
-			transform: translateY(0);
-		}
-
-		.form-disclaimer {
-			font-size: 0.85rem;
-			color: var(--light-text);
-			text-align: center;
-			margin-top: 0.8rem;
-		}
-
-		.thank-you {
-			text-align: center;
-			padding: 3rem 1rem;
-			width: 100%;
-		}
-
-		.success-icon {
-			font-size: 3.5rem;
-			color: #FFFFFF;
-			margin-bottom: 1.2rem;
-		}
-
-		.thank-you h3 {
-			font-size: 1.6rem;
-			margin-bottom: 0.8rem;
-			color: var(--dark-text);
-		}
-
-		.thank-you p {
-			color: var(--light-text);
-			font-size: 1.05rem;
-		}
-
-		.services,
-		.carousel,
-		.dashboard {
-			padding: 5rem 4%;
-		}
-
-		.services {
-			background-color: var(--white);
-		}
-
-		.section-title {
-			font-size: 2.5rem;
-			text-align: center;
-			margin-bottom: 1rem;
-			color: var(--dark-text);
-			position: relative;
-			font-weight: 600;
-		}
-
-		.section-subtitle {
-			font-size: 1.1rem;
-			text-align: center;
-			margin-bottom: 3rem;
-			color: var(--light-text);
-			max-width: 700px;
-			margin-left: auto;
-			margin-right: auto;
-		}
-
-		.section-title::after {
-			content: '';
-			position: absolute;
-			bottom: -15px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 100px;
-			height: 4px;
-			background-color: var(--primary-blue);
-			border-radius: 2px;
-		}
-
-		.section-title+.section-subtitle {
-			margin-top: -0.5rem;
-		}
-
-		.section-title:not(:only-child)::after {
-			bottom: auto;
-		}
-
-		.carousel {
-			background-color: var(--dark-bg);
-		}
-
-		.carousel .section-title {
-			/* This was for "Our Services" if it used .section-title */
-			margin-bottom: 4rem;
-			/* Ensure space if no subtitle for carousel section titles */
-		}
-
-		.carousel .section-title::after {
-			/* Ensure underline for carousel section-titles too */
-			content: '';
-			position: absolute;
-			bottom: -15px;
-			/* Default position */
-			left: 50%;
-			transform: translateX(-50%);
-			width: 100px;
-			height: 4px;
-			background-color: var(--primary-blue);
-			border-radius: 2px;
-		}
-
-		.carousel-title {
-			/* This is used for Case Studies & Testimonials specific titles */
-			font-size: 2.2rem;
-			/* Slightly larger for distinction */
-			margin-bottom: 3.5rem;
-			/* Increased margin for underline */
-			text-align: center;
-			color: var(--dark-text);
-			font-weight: 600;
-			position: relative;
-		}
-
-		.carousel-title::after {
-			content: '';
-			position: absolute;
-			bottom: -12px;
-			left: 50%;
-			transform: translateX(-50%);
-			width: 80px;
-			height: 3px;
-			background-color: var(--primary-blue);
-			border-radius: 2px;
-		}
-
-		.carousel-container {
-			display: flex;
-			gap: 2rem;
-			overflow-x: auto;
-			scroll-snap-type: x mandatory;
-			padding: 1.5rem 0.5rem;
-			-webkit-overflow-scrolling: touch;
-		}
-
-		.carousel-container::-webkit-scrollbar {
-			height: 8px;
-		}
-
-		.carousel-container::-webkit-scrollbar-track {
-			background: var(--light-bg);
-			border-radius: 10px;
-		}
-
-		.carousel-container::-webkit-scrollbar-thumb {
-			background: #adb5bd;
-			border-radius: 10px;
-		}
-
-		.carousel-container::-webkit-scrollbar-thumb:hover {
-			background: var(--primary-blue);
-		}
-
-		.carousel-item {
-			min-width: 330px;
-			/* Slightly wider for more content */
-			max-width: 350px;
-			height: auto;
-			/* Let content define height */
-			border-radius: var(--border-radius-lg);
-			overflow: hidden;
-			position: relative;
-			scroll-snap-align: start;
-			transition: transform 0.3s ease, box-shadow 0.3s ease;
-			cursor: default;
-			/* Changed from pointer as items aren't links */
-			background-color: var(--white);
-			box-shadow: var(--shadow-md);
-			display: flex;
-			flex-direction: column;
-			padding: 2rem 1.8rem;
-			/* Adjusted padding */
-		}
-
-		.carousel-item:hover {
-			transform: translateY(-12px);
-			box-shadow: var(--shadow-lg);
-			z-index: 2;
-		}
-
-		.carousel-item h3 {
-			color: var(--primary-blue);
-			margin-top: 0.5rem;
-			margin-bottom: 1rem;
-			font-size: 1.25rem;
-			/* Slightly adjusted */
-			font-weight: 600;
-			line-height: 1.3;
-		}
-
-		.carousel-item p {
-			color: var(--light-text);
-			line-height: 1.65;
-			/* Improved readability */
-			font-size: 0.9rem;
-			/* Slightly smaller to fit more text */
-			flex-grow: 1;
-			margin-bottom: 0;
-			/* Remove default p margin if any */
-		}
-
-		.carousel-item i.fas {
-			font-size: 2.5rem;
-			/* Slightly smaller for balance */
-			color: var(--primary-blue);
-			margin-bottom: 1rem;
-			width: 100%;
-			text-align: left;
-		}
-
-		footer {
-			padding: 4rem 4%;
-			text-align: center;
-			font-size: 0.95rem;
-			background-color: #212529;
-			color: #ced4da;
-		}
-
-		.footer-contact-info {
-			margin-bottom: 1.5rem;
-			font-size: 0.9rem;
-			color: #adb5bd;
-		}
-
-		.footer-contact-info p {
-			margin-bottom: 0.3rem;
-		}
-
-		.footer-contact-info a {
-			color: #adb5bd;
-			text-decoration: none;
-		}
-
-		.footer-contact-info a:hover {
-			color: var(--primary-blue);
-		}
-
-		.social-icons {
-			display: flex;
-			justify-content: center;
-			gap: 2rem;
-			margin-bottom: 2rem;
-		}
-
-		.social-icons i {
-			font-size: 1.8rem;
-			cursor: pointer;
-			transition: color 0.2s ease, transform 0.2s ease;
-			color: #adb5bd;
-		}
-
-		.social-icons i:hover {
-			color: var(--primary-blue);
-			transform: scale(1.2);
-		}
-
-		.dashboard {
-			background-color: var(--dark-bg);
-		}
-
-		.dashboard .section-title {
-			margin-bottom: 1rem;
-		}
-
-		.dashboard-container {
-			background-color: var(--white);
-			border-radius: var(--border-radius-lg);
-			box-shadow: var(--shadow-md);
-			overflow: hidden;
-		}
-
-		.dashboard-header {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 1.5rem 2rem;
-			border-bottom: 1px solid var(--border-color);
-			background-color: var(--light-bg);
-		}
-
-		.dashboard-tabs {
-			display: flex;
-			gap: 0.5rem;
-		}
-
-		.dashboard-tab {
-			background: transparent;
-			border: 1px solid transparent;
-			padding: 0.75rem 1.5rem;
-			cursor: pointer;
-			font-weight: 600;
-			border-radius: 30px;
-			transition: all 0.3s ease;
-			color: var(--light-text);
-			font-size: 0.9rem;
-		}
-
-		.dashboard-tab:hover {
-			color: var(--primary-blue);
-			background-color: rgba(0, 123, 255, 0.1);
-		}
-
-		.dashboard-tab.active {
-			background-color: var(--primary-blue);
-			color: var(--white);
-			box-shadow: var(--shadow-sm);
-		}
-
-		.dashboard-controls select {
-			padding: 0.6rem 0.8rem;
-			border-radius: var(--border-radius);
-			border: 1px solid var(--border-color);
-			background-color: var(--white);
-			font-size: 0.9rem;
-		}
-
-		.dashboard-controls select:focus {
-			outline: none;
-			border-color: var(--primary-blue);
-			box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
-		}
-
-		.dashboard-content {
-			padding: 2.5rem;
-		}
-
-		.dashboard-panel {
-			display: none;
-		}
-
-		.dashboard-panel.active {
-			display: block;
-			animation: fadeIn 0.5s ease-in-out;
-		}
-
-		@keyframes fadeIn {
-			from {
-				opacity: 0;
-				transform: translateY(10px);
-			}
-
-			to {
-				opacity: 1;
-				transform: translateY(0);
-			}
-		}
-
-		.dashboard-metrics {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-			gap: 1.5rem;
-			margin-bottom: 2.5rem;
-		}
-
-		.metric-card {
-			background-color: var(--white);
-			border-radius: var(--border-radius);
-			padding: 1.8rem;
-			box-shadow: var(--shadow-sm);
-			transition: transform 0.2s ease, box-shadow 0.2s ease;
-			border: 1px solid var(--border-color);
-		}
-
-		.metric-card:hover {
-			transform: translateY(-6px);
-			box-shadow: var(--shadow-md);
-		}
-
-		.metric-card h3 {
-			font-size: 0.95rem;
-			color: var(--light-text);
-			margin-bottom: 0.8rem;
-			font-weight: 500;
-		}
-
-		.metric-value {
-			font-size: 2rem;
-			font-weight: 700;
-			color: var(--dark-text);
-			margin-bottom: 0.8rem;
-		}
-
-		.metric-change {
-			font-size: 0.9rem;
-			font-weight: 600;
-			display: flex;
-			align-items: center;
-			gap: 0.4rem;
-		}
-
-		.metric-change::before {
-			font-family: "Font Awesome 6 Free";
-			font-weight: 900;
-			font-size: 0.8em;
-		}
-
-		.positive {
-			color: var(--secondary-green);
-		}
-
-		.positive::before {
-			content: "\f062";
-		}
-
-		.negative {
-			color: #dc3545;
-		}
-
-		.negative::before {
-			content: "\f063";
-		}
-
-		.dashboard-charts {
-			display: grid;
-			grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-			gap: 2rem;
-		}
-
-		.chart-container {
-			background-color: var(--white);
-			border-radius: var(--border-radius);
-			padding: 2rem;
-			box-shadow: var(--shadow-sm);
-			border: 1px solid var(--border-color);
-		}
-
-		.chart-container h3 {
-			font-size: 1.1rem;
-			color: var(--dark-text);
-			margin-bottom: 1.5rem;
-			font-weight: 600;
-		}
-
-		.chart {
-			width: 100%;
-			height: 320px;
-			position: relative;
-		}
-
-		@media (max-width: 992px) {
-			nav {
-				display: none;
-				flex-direction: column;
-				position: absolute;
-				top: 100%;
-				left: 0;
-				width: 100%;
-				background-color: var(--white);
-				box-shadow: var(--shadow-md);
-				padding: 1rem 0;
-				gap: 0;
-			}
-
-			nav.active {
-				display: flex;
-			}
-
-			nav a {
-				padding: 0.8rem 4%;
-				width: 100%;
-				border-bottom: 1px solid var(--border-color);
-			}
-
-			nav a:last-child {
-				border-bottom: none;
-			}
-
-			nav a::after {
-				display: none;
-			}
-
-			.mobile-nav-toggle {
-				display: block;
-			}
-
-			.hero-title {
-				font-size: 2.5rem;
-			}
-
-			.hero-description {
-				font-size: 1.1rem;
-			}
-
-			.hero-form-container {
-				flex-direction: column;
-				max-width: 600px;
-			}
-
-			.hero-offer,
-			.hero-form {
-				width: 100%;
-				padding: 2rem;
-			}
-
-			.hero-offer {
-				text-align: center;
-			}
-		}
-
-		@media (max-width: 768px) {
-			header {
-				padding: 0.75rem 4%;
-			}
-
-			.hero {
-				padding-top: 6rem;
-			}
-
-			.hero-title {
-				font-size: 2.2rem;
-			}
-
-			.hero-description {
-				font-size: 1rem;
-			}
-
-			.section-title {
-				font-size: 2rem;
-			}
-
-			.section-subtitle {
-				font-size: 1rem;
-				margin-bottom: 2.5rem;
-			}
-
-			.carousel .section-title,
-			.dashboard .section-title {
-				margin-bottom: 1rem;
-			}
-
-			.carousel-item {
-				min-width: 280px;
-				max-width: calc(100vw - 8% - 1rem);
-			}
-
-			/* Adjust max-width for smaller screens */
-			.dashboard-header {
-				flex-direction: column;
-				align-items: stretch;
-				gap: 1.5rem;
-			}
-
-			.dashboard-tabs {
-				width: 100%;
-				overflow-x: auto;
-				padding-bottom: 0.5rem;
-				justify-content: flex-start;
-			}
-
-			.dashboard-tab {
-				white-space: nowrap;
-			}
-
-			.dashboard-controls {
-				width: 100%;
-			}
-
-			.dashboard-controls select {
-				width: 100%;
-			}
-
-			.dashboard-charts {
-				grid-template-columns: 1fr;
-			}
-
-			.chart {
-				height: 280px;
-			}
-
-			.footer {
-				padding: 3rem 4%;
-			}
-		}
-
-		@media (max-width: 480px) {
-			.hero-title {
-				font-size: 1.8rem;
-			}
-
-			.hero-form-container {
-				max-width: 100%;
-				margin-left: -1rem;
-				margin-right: -1rem;
-				border-radius: 0;
-			}
-
-			.carousel-item {
-				min-width: calc(100vw - 8% - 2rem);
-				scroll-snap-align: center;
-			}
-
-			.carousel-item p {
-				font-size: 0.85rem;
-			}
-
-			/* Further adjust for very small screens */
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Growth Marketing - SEO & Business Intelligence</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-	<header>
-		<a href="#" class="logo"><i class="fas fa-chart-line"></i> HOLISTIC GROWTH</a>
-		<nav id="main-nav">
-			<a href="#hero-section">Home</a>
-			<a href="#services-section">Services</a>
-			<a href="#case-studies-section">Case Studies</a>
-			<a href="#testimonials-section">Testimonials</a>
-			<a href="#dashboard-section">Dashboard</a>
-			<a href="#contact-section">Contact</a>
-		</nav>
-		<div class="user-menu">
-			<i class="fas fa-search"></i>
-			<i class="fas fa-envelope"></i>
-		</div>
-		<button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-			<i class="fas fa-bars"></i>
-		</button>
-	</header>
-
-	<section class="hero" id="hero-section">
-		<div class="hero-content">
-			<h1 class="hero-title">Unlock Peak Performance: LA's Premier Data-Driven Marketing</h1>
-			<p class="hero-description">At Holistic Growth Marketing, we fuse advanced SEO with powerful Business Intelligence to propel your Los Angeles business forward. Experience sustainable growth, transparent reporting, and strategies tailored for the City of Angels.</p>
-			<div class="hero-form-container">
-				<div class="hero-offer">
-					<h2>Your Free 7-Day Growth Dashboard Awaits!</h2>
-					<ul>
-						<li><i class="fas fa-check-circle"></i> Full, unrestricted view of your key marketing analytics.</li>
-						<li><i class="fas fa-check-circle"></i> Personalized 15-minute setup & strategy consultation.</li>
-						<li><i class="fas fa-check-circle"></i> No strings attached: No credit card, cancel anytime.</li>
-					</ul>
-				</div>
-				<form id="trial-form" class="hero-form">
-					<input type="text" name="fullName" placeholder="Full Name" required aria-label="Full Name">
-					<input type="email" name="email" placeholder="Your Business Email" required aria-label="Email Address">
-					<input type="tel" name="phone" placeholder="Best Contact Number (Optional)" aria-label="Phone Number">
-					<button type="submit" class="btn btn-primary">
-						<i class="fas fa-rocket"></i> Start My Free Growth Insight
-					</button>
-					<p class="form-disclaimer">Discover your potential. See real data. No obligation.</p>
-				</form>
-			</div>
-		</div>
-	</section>
-
-	<section class="services" id="services-section">
-		<h2 class="section-title">Our Core Services</h2>
-		<p class="section-subtitle">We deliver a synergistic suite of digital marketing and intelligence services, meticulously crafted to amplify your brand's voice and accelerate sustainable growth within the dynamic Los Angeles landscape and beyond.</p>
-		<div class="carousel-container" id="popular-content">
-		</div>
-	</section>
-
-	<section class="carousel" id="case-studies-section">
-		<h2 class="carousel-title">LA Success Stories: Real Results</h2>
-		<div class="carousel-container" id="trending-content">
-		</div>
-	</section>
-
-	<section class="carousel" id="testimonials-section">
-		<h2 class="carousel-title">The Success Is Growth</h2>
-		<div class="carousel-container" id="new-content">
-		</div>
-	</section>
-
-	<section class="dashboard" id="dashboard-section">
-		<h2 class="section-title">Your Intelligence Dashboard</h2>
-		<p class="section-subtitle">
-			Access a transparent, real-time overview of your marketing performance. Our custom dashboards empower you to track critical KPIs across the full customer lifecycle—from acquisition to retention—enabling data-backed decisions for continuous strategy optimization.
-		</p>
-		<div class="dashboard-container">
-			<div class="dashboard-header">
-				<div class="dashboard-tabs">
-					<button class="dashboard-tab active" data-tab="acquisition" id="acquisition-tab" aria-controls="acquisition-panel">Acquisition</button>
-					<button class="dashboard-tab" data-tab="engagement" id="engagement-tab" aria-controls="engagement-panel">Engagement</button>
-					<button class="dashboard-tab" data-tab="conversion" id="conversion-tab" aria-controls="conversion-panel">Conversion</button>
-					<button class="dashboard-tab" data-tab="retention" id="retention-tab" aria-controls="retention-panel">Retention</button>
-				</div>
-				<div class="dashboard-controls">
-					<select id="time-range" aria-label="Select time range for dashboard data">
-						<option value="7">Last 7 days</option>
-						<option value="30" selected>Last 30 days</option>
-						<option value="90">Last 90 days</option>
-						<option value="365">Last year</option>
-					</select>
-				</div>
-			</div>
-			<div class="dashboard-content">
-				<div class="dashboard-panel active" id="acquisition-panel" role="tabpanel" aria-labelledby="acquisition-tab">
-					<div class="dashboard-metrics" src="	https://assets.onecompiler.app/42kgg76bk/42kjm8kj4/financial%20health%20dashboard.jpg">
-						<div class="metric-card">
-							<h3>Organic Traffic</h3>
-							<div class="metric-value">42,897</div>
-							<div class="metric-change positive">+12.3%</div>
-						</div>
-						<div class="metric-card">
-							<h3>Search Visibility Score</h3>
-							<div class="metric-value">64.2%</div>
-							<div class="metric-change positive">+5.7%</div>
-						</div>
-						<div class="metric-card">
-							<h3>Keywords in Top 3</h3>
-							<div class="metric-value">152</div>
-							<div class="metric-change positive">+18</div>
-						</div>
-						<div class="metric-card">
-							<h3>New High-Authority Backlinks</h3>
-							<div class="metric-value">35</div>
-							<div class="metric-change positive">+8</div>
-						</div>
-					</div>
-					<div class="dashboard-charts">
-						<div class="chart-container">
-							<h3>Traffic Acquisition Channels</h3>
-							<div class="chart"><canvas id="traffic-sources-chart"></canvas></div>
-						</div>
-						<div class="chart-container">
-							<h3>Organic Keyword Position Distribution</h3>
-							<div class="chart"><canvas id="keyword-performance-chart"></canvas></div>
-						</div>
-					</div>
-				</div>
-				<div class="dashboard-panel" id="engagement-panel" role="tabpanel" aria-labelledby="engagement-tab">
-					<div class="dashboard-metrics">
-						<div class="metric-card">
-							<h3>Avg. Session Duration</h3>
-							<div class="metric-value">3:15</div>
-							<div class="metric-change positive">+0:22</div>
-						</div>
-						<div class="metric-card">
-							<h3>Pages Per Visit</h3>
-							<div class="metric-value">3.8</div>
-							<div class="metric-change positive">+0.6</div>
-						</div>
-						<div class="metric-card">
-							<h3>Website Bounce Rate</h3>
-							<div class="metric-value">28.5%</div>
-							<div class="metric-change negative">-3.5% (Improved)</div>
-						</div>
-						<div class="metric-card">
-							<h3>Top Content Social Shares</h3>
-							<div class="metric-value">3,105</div>
-							<div class="metric-change positive">+450 Shares</div>
-						</div>
-					</div>
-					<div class="dashboard-charts">
-						<div class="chart-container">
-							<h3>User Engagement by Content Type</h3>
-							<div class="chart"><canvas id="content-engagement-chart"></canvas></div>
-						</div>
-						<div class="chart-container">
-							<h3>Customer Journey Visualization</h3>
-							<div class="chart"><canvas id="user-flow-chart"></canvas></div>
-						</div>
-					</div>
-				</div>
-				<div class="dashboard-panel" id="conversion-panel" role="tabpanel" aria-labelledby="conversion-tab">
-					<div class="dashboard-metrics">
-						<div class="metric-card">
-							<h3>Lead-to-Customer Conversion Rate</h3>
-							<div class="metric-value">5.2%</div>
-							<div class="metric-change positive">+0.9%</div>
-						</div>
-						<div class="metric-card">
-							<h3>Marketing Qualified Leads (MQLs)</h3>
-							<div class="metric-value">972</div>
-							<div class="metric-change positive">+120</div>
-						</div>
-						<div class="metric-card">
-							<h3>Average Cost Per Lead (CPL)</h3>
-							<div class="metric-value">$22.50</div>
-							<div class="metric-change negative">-$3.25 (Reduced)</div>
-						</div>
-						<div class="metric-card">
-							<h3>Monthly Attributed Revenue</h3>
-							<div class="metric-value">$145,800</div>
-							<div class="metric-change positive">+$21,300</div>
-						</div>
-					</div>
-					<div class="dashboard-charts">
-						<div class="chart-container">
-							<h3>Full Funnel Conversion Performance</h3>
-							<div class="chart"><canvas id="conversion-funnel-chart"></canvas></div>
-						</div>
-						<div class="chart-container">
-							<h3>Revenue Contribution by Marketing Channel</h3>
-							<div class="chart"><canvas id="revenue-by-channel-chart"></canvas></div>
-						</div>
-					</div>
-				</div>
-				<div class="dashboard-panel" id="retention-panel" role="tabpanel" aria-labelledby="retention-tab">
-					<div class="dashboard-metrics">
-						<div class="metric-card">
-							<h3>Repeat Customer Rate</h3>
-							<div class="metric-value">42.5%</div>
-							<div class="metric-change positive">+4.1%</div>
-						</div>
-						<div class="metric-card">
-							<h3>Newsletter Click-Through Rate (CTR)</h3>
-							<div class="metric-value">18.3%</div>
-							<div class="metric-change positive">+2.5%</div>
-						</div>
-						<div class="metric-card">
-							<h3>Average Customer Lifetime Value (CLTV)</h3>
-							<div class="metric-value">$2,150</div>
-							<div class="metric-change positive">+$280</div>
-						</div>
-						<div class="metric-card">
-							<h3>Quarterly Customer Churn Rate</h3>
-							<div class="metric-value">4.8%</div>
-							<div class="metric-change negative">-1.2% (Reduced)</div>
-						</div>
-					</div>
-					<div class="dashboard-charts">
-						<div class="chart-container">
-							<h3>Customer Retention Cohort Analysis</h3>
-							<div class="chart"><canvas id="customer-retention-chart"></canvas></div>
-						</div>
-						<div class="chart-container">
-							<h3>Value Segments of Active Customers</h3>
-							<div class="chart"><canvas id="customer-segments-chart"></canvas></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<footer id="contact-section">
-		<div class="footer-contact-info">
-			<p>Holistic Growth Marketing</p>
-			<p>Venice, Los Angeles, CA 90291</p>
-			<p><a href="tel:+13105550123">(310) 902-1031</a> | <a href="mailto:hello@holisticgrowthla.com">jason@holisticgrowthmarketing.com</a></p>
-		</div>
-		<div class="social-icons">
-			<a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-			<a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-			<a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-			<a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-		</div>
-		<p>&copy; <span id="current-year">2025</span> Holistic Growth Marketing. All rights reserved.</p>
-		<p>Proudly serving Los Angeles and clients across the nation with innovative digital strategies.</p>
-	</footer>
-
-	<script>
-		const popularContent = [{
-				icon: "fa-magnifying-glass-chart",
-				title: "SEO Strategy",
-				description: "Comprehensive search engine optimization to improve visibility and drive qualified traffic."
-			},
-			{
-				icon: "fa-chart-pie",
-				title: "Business Intelligence",
-				description: "Data analytics and insights to inform strategic business decisions."
-			},
-			{
-				icon: "fa-bullhorn",
-				title: "Content Marketing",
-				description: "Engaging, SEO-optimized content that connects with your target audience."
-			},
-			{
-				icon: "fa-comments-dollar",
-				title: "Paid Advertising",
-				description: "Strategic PPC campaigns to maximize ROI and accelerate growth."
-			},
-			{
-				icon: "fa-code",
-				title: "Technical SEO",
-				description: "Website optimization for search engines and improved user experience."
-			},
-			{
-				icon: "fa-link",
-				title: "Link Building",
-				description: "Ethical backlink strategies to boost authority and rankings."
-			}
-		];
-		const trendingContent = [{
-				icon: "fa-building",
-				title: "LA Real Estate Firm",
-				description: "140% increase in organic traffic within 6 months through local SEO strategy."
-			},
-			{
-				icon: "fa-utensils",
-				title: "Restaurant Chain",
-				description: "Doubled online reservations through targeted local search campaigns."
-			},
-			{
-				icon: "fa-laptop",
-				title: "Tech Startup",
-				description: "Achieved first page rankings for competitive keywords, increasing leads by 85%."
-			},
-			{
-				icon: "fa-shirt",
-				title: "Fashion Retailer",
-				description: "Ecommerce conversion rate increased by 65% through data-driven UX improvements."
-			}
-		];
-		const newContent = [{
-				icon: "fa-user-tie",
-				title: "John D., CEO",
-				description: "\"Holistic Growth transformed our digital presence. Their SEO expertise has been invaluable to our business growth.\""
-			},
-			{
-				icon: "fa-user-tie",
-				title: "Sarah M., Marketing Director",
-				description: "\"The BI insights we've gained have completely changed our marketing strategy for the better.\""
-			},
-			{
-				icon: "fa-user-tie",
-				title: "Michael K., Founder",
-				description: "\"Working with Holistic Growth has been the best marketing decision we've made for our startup.\""
-			}
-		];
-		// Function to populate carousels
-		function populateCarousel(containerId, items) {
-			const container = document.getElementById(containerId);
-			container.innerHTML = '';
-			items.forEach(item => {
-				const carouselItem = document.createElement('div');
-				carouselItem.className = 'carousel-item';
-				const icon = document.createElement('i');
-				icon.className = `fas ${item.icon}`;
-				const title = document.createElement('h3');
-				title.textContent = item.title;
-				const description = document.createElement('p');
-				description.textContent = item.description;
-				carouselItem.appendChild(icon);
-				carouselItem.appendChild(title);
-				carouselItem.appendChild(description);
-				container.appendChild(carouselItem);
-			});
-		}
-		// Initialize carousels when page loads
-		document.addEventListener('DOMContentLoaded', () => {
-			populateCarousel('popular-content', popularContent);
-			populateCarousel('trending-content', trendingContent);
-			populateCarousel('new-content', newContent);
-			// Sticky header effect
-			window.addEventListener('scroll', () => {
-				const header = document.querySelector('header');
-				if (window.scrollY > 10) {
-					header.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
-				} else {
-					header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-				}
-			});
-			// Dashboard functionality
-			initDashboard();
-			// Trial form submission
-			document.getElementById('trial-form').addEventListener('submit', function(e) {
-				e.preventDefault();
-				const formData = new FormData(this);
-				const formElements = this.elements;
-				// Simple form validation
-				let isValid = true;
-				for (let i = 0; i < formElements.length; i++) {
-					if (formElements[i].hasAttribute('required') && !formElements[i].value) {
-						isValid = false;
-						formElements[i].classList.add('error');
-					} else {
-						formElements[i].classList.remove('error');
-					}
-				}
-				if (isValid) {
-					// Show thank you message
-					this.innerHTML = `
-                        <div class="thank-you">
-                            <i class="fas fa-check-circle success-icon"></i>
-                            <h3>Thank You!</h3>
-                            <p>We'll contact you within 24 hours to schedule your setup call.</p>
+    <header>
+        <a href="#" class="logo"><i class="fas fa-chart-line"></i> HOLISTIC GROWTH</a>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Services</a>
+            <a href="#">Case Studies</a>
+            <a href="#">About Us</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </nav>
+        <div class="user-menu">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-envelope"></i>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Data-Driven Growth Strategies</h1>
+            <p class="hero-description">Holistic Growth Marketing combines SEO expertise and Business Intelligence to help Los Angeles businesses achieve sustainable, measurable results.</p>
+            <div class="hero-form-container">
+                <div class="hero-offer">
+                    <h2>Free 7-Day Trial Dashboard</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Full access to marketing analytics</li>
+                        <li><i class="fas fa-check-circle"></i> 15-minute setup call</li>
+                        <li><i class="fas fa-check-circle"></i> No commitment after trial</li>
+                    </ul>
+                </div>
+                <form id="trial-form" class="hero-form">
+                    <div class="form-input-group">
+                        <input type="text" placeholder="Full Name" required>
+                        <span class="error-message">Please enter your full name</span>
+                    </div>
+                    <div class="form-input-group">
+                        <input type="email" placeholder="Email Address" required>
+                        <span class="error-message">Please enter a valid email address</span>
+                    </div>
+                    <div class="form-input-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                        <span class="error-message">Please enter your phone number</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Start My Free Trial
+                    </button>
+                    <p class="form-disclaimer">No credit card required. Cancel anytime.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="carousel services">
+        <h2 class="section-title">Our Services</h2>
+        <div class="carousel-container" id="popular-content">
+            <!-- Will be populated with JS -->
+        </div>
+    </section>
+    
+    <section class="carousel">
+        <h2 class="carousel-title">Case Studies</h2>
+        <div class="carousel-container" id="trending-content">
+            <!-- Will be populated with JS -->
+        </div>
+    </section>
+    
+    <section class="carousel">
+        <h2 class="carousel-title">Client Testimonials</h2>
+        <div class="carousel-container" id="new-content">
+            <!-- Will be populated with JS -->
+        </div>
+    </section>
+    
+    <section class="dashboard">
+        <h2 class="section-title">Intelligence Dashboard</h2>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <div class="dashboard-tabs">
+                    <button class="dashboard-tab active" data-tab="acquisition">Acquisition</button>
+                    <button class="dashboard-tab" data-tab="engagement">Engagement</button>
+                    <button class="dashboard-tab" data-tab="conversion">Conversion</button>
+                    <button class="dashboard-tab" data-tab="retention">Retention</button>
+                </div>
+                <div class="dashboard-controls">
+                    <select id="time-range">
+                        <option value="7">Last 7 days</option>
+                        <option value="30" selected>Last 30 days</option>
+                        <option value="90">Last 90 days</option>
+                        <option value="365">Last year</option>
+                    </select>
+                </div>
+            </div>
+            <div class="dashboard-content">
+                <div class="dashboard-panel active" id="acquisition-panel">
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <h3>Organic Traffic</h3>
+                            <div class="metric-value">42,897</div>
+                            <div class="metric-change positive">+12.3%</div>
                         </div>
-                    `;
-				}
-			});
-		});
-
-		function initDashboard() {
-			// Tab switching
-			const tabs = document.querySelectorAll('.dashboard-tab');
-			tabs.forEach(tab => {
-				tab.addEventListener('click', () => {
-					// Set active tab
-					document.querySelector('.dashboard-tab.active').classList.remove('active');
-					tab.classList.add('active');
-					// Show corresponding panel
-					const panelId = `${tab.dataset.tab}-panel`;
-					document.querySelector('.dashboard-panel.active').classList.remove('active');
-					document.getElementById(panelId).classList.add('active');
-					// Redraw charts for the active panel
-					createCharts(tab.dataset.tab);
-				});
-			});
-			// Initialize charts for the initial active tab
-			createCharts('acquisition');
-			// Time range selector
-			document.getElementById('time-range').addEventListener('change', () => {
-				const activeTab = document.querySelector('.dashboard-tab.active').dataset.tab;
-				createCharts(activeTab);
-			});
-		}
-
-		function createCharts(tabName) {
-			// Clear existing charts
-			const chartContainers = document.querySelectorAll(`#${tabName}-panel .chart`);
-			chartContainers.forEach(container => {
-				container.innerHTML = '';
-				const canvas = document.createElement('canvas');
-				container.appendChild(canvas);
-			});
-			switch (tabName) {
-				case 'acquisition':
-					createAcquisitionCharts();
-					break;
-				case 'engagement':
-					createEngagementCharts();
-					break;
-				case 'conversion':
-					createConversionCharts();
-					break;
-				case 'retention':
-					createRetentionCharts();
-					break;
-			}
-		}
-
-		function createAcquisitionCharts() {
-			// Traffic Sources Chart
-			const trafficSourcesCtx = document.querySelector('#traffic-sources-chart canvas').getContext('2d');
-			new Chart(trafficSourcesCtx, {
-				type: 'doughnut',
-				data: {
-					labels: ['Organic Search', 'Direct', 'Referral', 'Social', 'Paid Search', 'Email'],
-					datasets: [{
-						data: [45, 20, 12, 10, 8, 5],
-						backgroundColor: [
-							'#1e88e5', '#43a047', '#ffa000', '#e53935', '#5e35b1', '#00acc1'
-						],
-						borderWidth: 0
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					plugins: {
-						legend: {
-							position: 'right'
-						}
-					}
-				}
-			});
-			// Keyword Performance Chart
-			const keywordCtx = document.querySelector('#keyword-performance-chart canvas').getContext('2d');
-			const timeRange = parseInt(document.getElementById('time-range').value);
-			const labels = Array.from({
-				length: timeRange
-			}, (_, i) => {
-				const date = new Date();
-				date.setDate(date.getDate() - (timeRange - i - 1));
-				return date.toLocaleDateString('en-US', {
-					month: 'short',
-					day: 'numeric'
-				});
-			});
-			new Chart(keywordCtx, {
-				type: 'line',
-				data: {
-					labels: labels,
-					datasets: [{
-						label: 'Top 3 Positions',
-						data: generateRandomData(timeRange, 30, 45),
-						borderColor: '#1e88e5',
-						backgroundColor: 'rgba(30, 136, 229, 0.1)',
-						tension: 0.4,
-						fill: true
-					}, {
-						label: 'Positions 4-10',
-						data: generateRandomData(timeRange, 60, 80),
-						borderColor: '#43a047',
-						backgroundColor: 'rgba(67, 160, 71, 0.1)',
-						tension: 0.4,
-						fill: true
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						y: {
-							beginAtZero: true,
-							title: {
-								display: true,
-								text: 'Number of Keywords'
-							}
-						}
-					}
-				}
-			});
-		}
-
-		function createEngagementCharts() {
-			// Content Engagement Chart
-			const contentCtx = document.querySelector('#content-engagement-chart canvas').getContext('2d');
-			new Chart(contentCtx, {
-				type: 'bar',
-				data: {
-					labels: ['Blog Posts', 'Service Pages', 'Case Studies', 'Resources', 'Landing Pages'],
-					datasets: [{
-						label: 'Avg. Time on Page (seconds)',
-						data: [185, 143, 210, 162, 128],
-						backgroundColor: '#1e88e5'
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					indexAxis: 'y'
-				}
-			});
-			// User Flow Chart
-			const flowCtx = document.querySelector('#user-flow-chart canvas').getContext('2d');
-			new Chart(flowCtx, {
-				type: 'bar',
-				data: {
-					labels: ['Homepage', 'Blog', 'Services', 'About', 'Case Studies', 'Contact'],
-					datasets: [{
-						label: 'Entry Page',
-						data: [45, 25, 15, 5, 8, 2],
-						backgroundColor: '#1e88e5'
-					}, {
-						label: 'Exit Page',
-						data: [20, 15, 10, 5, 5, 45],
-						backgroundColor: '#e53935'
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						x: {
-							stacked: true,
-						},
-						y: {
-							stacked: true
-						}
-					}
-				}
-			});
-		}
-
-		function createConversionCharts() {
-			// Conversion Funnel Chart
-			const funnelCtx = document.querySelector('#conversion-funnel-chart canvas').getContext('2d');
-			new Chart(funnelCtx, {
-				type: 'bar',
-				data: {
-					labels: ['Visitors', 'Product Views', 'Add to Cart', 'Checkout', 'Purchase'],
-					datasets: [{
-						label: 'Conversion Funnel',
-						data: [100, 45, 25, 15, 10],
-						backgroundColor: [
-							'#1e88e5', '#42a5f5', '#64b5f6', '#90caf9', '#bbdefb'
-						]
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						y: {
-							beginAtZero: true,
-							title: {
-								display: true,
-								text: 'Percentage'
-							}
-						}
-					}
-				}
-			});
-			// Revenue by Channel Chart
-			const revenueCtx = document.querySelector('#revenue-by-channel-chart canvas').getContext('2d');
-			const timeRange = parseInt(document.getElementById('time-range').value);
-			const labels = Array.from({
-				length: timeRange
-			}, (_, i) => {
-				const date = new Date();
-				date.setDate(date.getDate() - (timeRange - i - 1));
-				return date.toLocaleDateString('en-US', {
-					month: 'short',
-					day: 'numeric'
-				});
-			});
-			new Chart(revenueCtx, {
-				type: 'line',
-				data: {
-					labels: labels,
-					datasets: [{
-						label: 'Organic',
-						data: generateRandomData(timeRange, 1000, 5000),
-						borderColor: '#1e88e5',
-						tension: 0.4
-					}, {
-						label: 'Paid',
-						data: generateRandomData(timeRange, 800, 3000),
-						borderColor: '#43a047',
-						tension: 0.4
-					}, {
-						label: 'Direct',
-						data: generateRandomData(timeRange, 500, 2000),
-						borderColor: '#ffa000',
-						tension: 0.4
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						y: {
-							beginAtZero: true,
-							title: {
-								display: true,
-								text: 'Revenue ($)'
-							}
-						}
-					}
-				}
-			});
-		}
-
-		function createRetentionCharts() {
-			// Customer Retention Chart
-			const retentionCtx = document.querySelector('#customer-retention-chart canvas').getContext('2d');
-			const timeRange = parseInt(document.getElementById('time-range').value);
-			const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-			const currentMonth = new Date().getMonth();
-			const labels = Array.from({
-				length: 6
-			}, (_, i) => {
-				const monthIndex = (currentMonth - 5 + i) % 12;
-				return months[monthIndex < 0 ? monthIndex + 12 : monthIndex];
-			});
-			new Chart(retentionCtx, {
-				type: 'line',
-				data: {
-					labels: labels,
-					datasets: [{
-						label: 'Retention Rate',
-						data: [62, 64, 67, 65, 70, 73],
-						borderColor: '#1e88e5',
-						backgroundColor: 'rgba(30, 136, 229, 0.1)',
-						tension: 0.4,
-						fill: true
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						y: {
-							min: 50,
-							max: 100,
-							title: {
-								display: true,
-								text: 'Retention Rate (%)'
-							}
-						}
-					}
-				}
-			});
-			// Customer Segments Chart
-			const segmentsCtx = document.querySelector('#customer-segments-chart canvas').getContext('2d');
-			new Chart(segmentsCtx, {
-				type: 'radar',
-				data: {
-					labels: ['New', 'Occasional', 'Regular', 'Loyal', 'VIP'],
-					datasets: [{
-						label: 'Revenue Contribution',
-						data: [10, 15, 25, 30, 20],
-						backgroundColor: 'rgba(30, 136, 229, 0.2)',
-						borderColor: '#1e88e5',
-						pointBackgroundColor: '#1e88e5'
-					}, {
-						label: 'Customer Count',
-						data: [35, 25, 20, 15, 5],
-						backgroundColor: 'rgba(67, 160, 71, 0.2)',
-						borderColor: '#43a047',
-						pointBackgroundColor: '#43a047'
-					}]
-				},
-				options: {
-					responsive: true,
-					maintainAspectRatio: false,
-					scales: {
-						r: {
-							angleLines: {
-								display: true
-							},
-							suggestedMin: 0,
-							suggestedMax: 40
-						}
-					}
-				}
-			});
-		}
-
-		function generateRandomData(length, min, max) {
-			return Array.from({
-				length
-			}, () => Math.floor(Math.random() * (max - min + 1)) + min);
-		}
-	</script>
+                        <div class="metric-card">
+                            <h3>Search Visibility</h3>
+                            <div class="metric-value">64.2%</div>
+                            <div class="metric-change positive">+5.7%</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Keyword Rankings</h3>
+                            <div class="metric-value">487</div>
+                            <div class="metric-change positive">+23</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Backlinks</h3>
+                            <div class="metric-value">1,245</div>
+                            <div class="metric-change positive">+89</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Traffic Sources</h3>
+                            <div class="chart" id="traffic-sources-chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Keyword Performance</h3>
+                            <div class="chart" id="keyword-performance-chart"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-image">
+                        <img src="/acquisition_analytics.png" alt="Acquisition Analytics Dashboard" class="analytics-image">
+                    </div>
+                </div>
+                <div class="dashboard-panel" id="engagement-panel">
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <h3>Avg. Time on Page</h3>
+                            <div class="metric-value">2:47</div>
+                            <div class="metric-change positive">+0:18</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Pages Per Session</h3>
+                            <div class="metric-value">3.2</div>
+                            <div class="metric-change positive">+0.5</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Bounce Rate</h3>
+                            <div class="metric-value">32.4%</div>
+                            <div class="metric-change negative">-2.1%</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Social Shares</h3>
+                            <div class="metric-value">2,389</div>
+                            <div class="metric-change positive">+341</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Content Engagement</h3>
+                            <div class="chart" id="content-engagement-chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>User Flow</h3>
+                            <div class="chart" id="user-flow-chart"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-image">
+                        <img src="/engagement_analytics.png" alt="Engagement Analytics Dashboard" class="analytics-image">
+                    </div>
+                </div>
+                <div class="dashboard-panel" id="conversion-panel">
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <h3>Conversion Rate</h3>
+                            <div class="metric-value">4.7%</div>
+                            <div class="metric-change positive">+0.8%</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>New Leads</h3>
+                            <div class="metric-value">843</div>
+                            <div class="metric-change positive">+112</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Cost Per Acquisition</h3>
+                            <div class="metric-value">$28.45</div>
+                            <div class="metric-change negative">-$4.12</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Revenue</h3>
+                            <div class="metric-value">$124,532</div>
+                            <div class="metric-change positive">+$18,245</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Conversion Funnel</h3>
+                            <div class="chart" id="conversion-funnel-chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Revenue by Channel</h3>
+                            <div class="chart" id="revenue-by-channel-chart"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-image">
+                        <img src="/conversion_analytics.png" alt="Conversion Analytics Dashboard" class="analytics-image">
+                    </div>
+                </div>
+                <div class="dashboard-panel" id="retention-panel">
+                    <div class="dashboard-metrics">
+                        <div class="metric-card">
+                            <h3>Return Rate</h3>
+                            <div class="metric-value">38.2%</div>
+                            <div class="metric-change positive">+3.4%</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Email Open Rate</h3>
+                            <div class="metric-value">24.8%</div>
+                            <div class="metric-change positive">+1.2%</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Customer Lifetime Value</h3>
+                            <div class="metric-value">$1,842</div>
+                            <div class="metric-change positive">+$215</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Retention Rate</h3>
+                            <div class="metric-value">73.4%</div>
+                            <div class="metric-change positive">+2.8%</div>
+                        </div>
+                    </div>
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Customer Retention</h3>
+                            <div class="chart" id="customer-retention-chart"></div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Customer Segments</h3>
+                            <div class="chart" id="customer-segments-chart"></div>
+                        </div>
+                    </div>
+                    <div class="dashboard-image">
+                        <img src="/retention_analytics.png" alt="Retention Analytics Dashboard" class="analytics-image">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="carousel">
+        <h2 class="carousel-title">Case Studies</h2>
+        <div class="carousel-container" id="trending-content">
+            <!-- Will be populated with JS -->
+        </div>
+    </section>
+    
+    <footer>
+        <div class="social-icons">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-linkedin"></i>
+        </div>
+        <p>&copy; 2023 Holistic Growth Marketing. All rights reserved.</p>
+    </footer>
+    
+    <script src="app.js"></script>
 </body>
-
 </html>
